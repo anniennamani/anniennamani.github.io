@@ -153,63 +153,25 @@
 							<p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus, lacus eget hendrerit bibendum, urna est aliquam sem, sit amet imperdiet est velit quis lorem.</p>
 							<div class="split style1">
 								<section>
-									<!-- Include the EmailJS SDK -->
-									<script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
-									<script type="text/javascript">
-									   (function(){
-									      emailjs.init("k0mihQ0Kk7_tAHXYY");  // Initialize EmailJS with your public key
-									   })();
-									</script>
-									
-									<form id="contact-form">
-									   <div class="fields">
-									      <div class="field half">
-									         <label for="name">Full Name</label>
-									         <input type="text" name="name" id="name" required />
-									      </div>
-									      <div class="field half">
-									         <label for="email">Email</label>
-									         <input type="email" name="email" id="email" required />
-									      </div>
-									      <div class="field">
-									         <label for="message">Message</label>
-									         <textarea name="message" id="message" rows="5" required></textarea>
-									      </div>
-									   </div>
-									   <ul class="actions">
-									      <li><button type="submit" class="button submit">Send Message</button></li>
-									   </ul>
+									<form method="post" action="#">
+										<div class="fields">
+											<div class="field half">
+												<label for="name">Name</label>
+												<input type="text" name="name" id="name" />
+											</div>
+											<div class="field half">
+												<label for="email">Email</label>
+												<input type="text" name="email" id="email" />
+											</div>
+											<div class="field">
+												<label for="message">Message</label>
+												<textarea name="message" id="message" rows="5"></textarea>
+											</div>
+										</div>
+										<ul class="actions">
+											<li><a href="" class="button submit" from="fields">Send Message</a></li>
+										</ul>
 									</form>
-									
-									<script type="text/javascript">
-									   // Listen to form submission
-									   document.getElementById('contact-form').addEventListener('submit', function(event) {
-									      event.preventDefault(); // Prevent the default form submission (page refresh)
-									
-									      // Collect form data
-									      const name = document.getElementById('name').value;
-									      const email = document.getElementById('email').value;
-									      const message = document.getElementById('message').value;
-									
-									      // Check if EmailJS is initialized properly
-									      console.log("Attempting to send email via EmailJS...");
-									
-									      // Send email using EmailJS
-									      emailjs.send("service_1mcnvrw", "template_zlvrtzk", {
-									         name: name,
-									         email: email,
-									         message: message
-									      }).then(function(response) {
-									         // Success! Inform the user
-									         console.log('SUCCESS!', response.status, response.text);
-									         alert("Message sent successfully!");
-									      }, function(error) {
-									         // Error! Log it for debugging
-									         console.error('FAILED...', error);
-									         alert("Failed to send message. Please try again.");
-									      });
-									   });
-									</script>
 
 
 								</section>
